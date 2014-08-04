@@ -20,7 +20,7 @@ limitations under the License.
 	  body {
 	    overflow:hidden;
 	  }
-      div{
+      div {
 	    height:720PX;
 	    width:1280PX;
 	    text-align:center;
@@ -32,12 +32,16 @@ limitations under the License.
 	    font-weight:bold;
 	    font-family:Verdana, Geneva, sans-serif;
 	    font-size:40px;
-	}
+	  }
+      iframe {
+        display: none;
+      }
     </style>
     <title>Cast Hello Text</title>
   </head>
   <body>
 	<DIV id="message">Talk to me</DIV>
+    <iframe id="webpage"></iframe>
     <script type="text/javascript" src="//www.gstatic.com/cast/sdk/libs/receiver/2.0.0/cast_receiver.js"></script>
     <script type="text/javascript">
       window.onload = function() {
@@ -94,7 +98,18 @@ limitations under the License.
       // utility function to display the text message in the input field
       function displayText(text) {
         console.log(text);
-        document.getElementById("message").innerHTML=text;
+        var message = document.getElementById("message");
+        var webpage = document.getElementById("webpage");
+        if(text < == 'http') {
+          message.style.display = "none";
+          webpage.style.display = "block";
+          webpage.src = text;
+        }
+        else {
+          message.style.display = "block";
+          webpage.style.display = "none";
+          message.innerHTML = text;
+        }
         window.castReceiverManager.setApplicationState(text);
       };
     </script>
