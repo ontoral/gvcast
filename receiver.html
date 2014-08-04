@@ -100,7 +100,7 @@ limitations under the License.
         console.log(text);
         var message = document.getElementById("message");
         var webpage = document.getElementById("webpage");
-        if (text < == 'http') {
+        if (text.substr(0, 4) === "http") {
           message.style.display = "none";
           webpage.style.display = "block";
           webpage.src = text;
