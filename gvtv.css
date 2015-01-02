@@ -1,0 +1,27 @@
+@font-face {
+  font-family:velcro;
+  src:url(VELCRO__.TTF);
+}
+
+body {
+  height:520px;
+  margin:0px;
+  border-width:100px 0px;
+  border-color:chocolate;
+  border-style:solid;
+}
+
+.global-village {
+  font-family:velcro;
+  font-size:120px;
+  margin:10px;
+}
+
+h1, h2 {
+  color:white;
+}
+
+li {
+  color:red;
+  font-weight:bold;
+}
