@@ -9,6 +9,7 @@ body {
   border-width:100px 0px;
   border-color:chocolate;
   border-style:solid;
+  background-color:black;
 }
 
 .global-village {
@@ -24,4 +25,8 @@ h1, h2 {
 li {
   color:red;
   font-weight:bold;
+}
+
+p {
+  color:white;
 }
