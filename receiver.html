@@ -119,8 +119,17 @@ limitations under the License.
     </script>
     <script>
       var firebase = new Firebase('https://gvtv.firebaseio.com/pages');
+      var slideIndex = 0;
+      var pages;
+      function displayPage() {
+        displayText(pages[slideIndex].body);
+        slideIndex++;
+        setTimeout(displayPage, 1000);
+      }
       function onvalue(snapshot) {
-        displayText(snapshot.val()[0].body);
+        pages = snapshot.val();
+        setTimeout(displayPage, 1000);
+        //displayText(snapshot.val()[0].body);
         //var pages = snapshot.val();
         //for (var i = 0; i < pages.length; i++)
           //console.log(pages[i].body);
