@@ -16,12 +16,14 @@ limitations under the License.
 <!DOCTYPE html>
 <html>
   <head>
+    <script src='https://cdn.firebase.com/js/client/2.0.4/firebase.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
     <style type="text/css">
 	  body {
 	    overflow:hidden;
         height:100%;
 	  }
-      div {
+      div, h1 {
 	    text-align:center;
 	    border:0px solid silver;
 	    display:table-cell;
@@ -40,7 +42,7 @@ limitations under the License.
         border-width:0px;
       }
     </style>
-    <title>Cast Hello Text</title>
+    <title>Global Village TV</title>
   </head>
   <body>
 	<DIV id="message">Talk to me</DIV>
@@ -114,6 +116,12 @@ limitations under the License.
         }
         window.castReceiverManager.setApplicationState(text);
       };
+    </script>
+    <script>
+      var firebase = new Firebase('https://gvtv.firebaseio.com/pages');
+      firebase.on('value', function(pages) {
+        $('#message').innerHTML = pages[0].html;
+      });
     </script>
   </body>
 </html>
