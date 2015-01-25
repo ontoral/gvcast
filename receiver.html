@@ -147,16 +147,17 @@ limitations under the License.
           showIndex = (showIndex + 1) % slideshow.length;
         }
         template = templates[slide.template];
-        if (timeout)
-          setTimeout(displaySlide, timeout);
+        return timeout;
       }
 
       // Display the next page based on the currentIndex
       // Use a timer to loop through the pages
       function playSlideshow() {
-        displayText(pages[currentIndex].body);
-        currentIndex = (currentIndex + 1) % slideshow.length;
-        setTimeout(displayPage, 1000);
+        //displayText(pages[currentIndex].body);
+        //currentIndex = (currentIndex + 1) % slideshow.length;
+        var timeout = displaySlide();
+        if (timeout)
+          setTimeout(displaySlide, timeout);
       }
 
       // Get all data from firebase, and display first page
