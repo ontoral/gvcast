@@ -122,7 +122,7 @@ limitations under the License.
       function onvalue(snapshot) {
         var pages = snapshot.val();
         for (var i = 0; i < pages.length; i++)
-          console.log(pages[i].html);
+          console.log(pages[i].body);
       }
       firebase.on('value', onvalue);
       $('#message').innerHTML = '<h1>Global Village TV</h1>';
