@@ -1,0 +1,18 @@
+{
+    "pages": [
+        {"title": "main", "body": "<h1>Global Village</h1>"},
+        {"title": "upcoming", "body": "<h1>Upcoming Shows</h1>"},
+        {"title": "like", "body": "<h1>Like Global Village on Facebook</h1>"},
+        {"title": "follow", "body": "<h1>Follow Global Village on Twitter</h1>"},
+        {"title": "venue", "body": "<h1>Dublin Door House</h1>"},
+        {"title": "event", "body": "<h1>Congratulations Newlyweds</h1>"},
+        {"title": "trivia", "body": "<h1>Did you know?</h1>"},
+        {"title": "photos", "body": "<h1>Foto Pheed</h1>"},
+        {"title": "twitter", "body": "<h1>Recently on Twitter</h1>"},
+        {"title": "survey", "body": "<h1>Choose one...</h1>"},
+        {"title": "ad", "body": "<h1>...and now a word from our sponsors.</h1>"},
+        {"title": "celebration", "body": "<h1>Happy Birthday/Holiday</h1>"},
+        {"title": "gv2016", "body": "<h1>Global Village for President 2016</h1>"},
+        {"title": "league", "body": "<h1>League of Lucas</h1>"}
+    ]
+}
