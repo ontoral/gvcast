@@ -16,22 +16,22 @@
         }
     },
     "slides": {
-        "main": {"template": "test", "content": {"title": "Global Village"}},
-        "upcoming": {"template": "test", "content": {"title": "Upcoming Shows"}},
-        "like": {"template": "test", "content": {"title": "Like Global Village on Facebook"}},
-        "follow": {"template": "test", "content": {"title": "Follow Global Village on Twitter"}},
-        "venue": {"template": "test", "content": {"title": "Dublin Door House"}},
-        "event": {"template": "test", "content": {"title": "Congratulations Newlyweds"}},
-        "trivia": {"template": "test", "content": {"title": "Did you know?"}},
-        "photos": {"template": "test", "content": {"title": "Foto Pheed"}},
-        "twitter": {"template": "test", "content": {"title": "Recently on Twitter"}},
-        "survey": {"template": "test", "content": {"title": "Choose one..."}},
-        "ad": {"template": "test", "content": {"title": "...and now a word from our sponsors."}},
-        "celebration": {"template": "test", "content": {"title": "Happy Birthday/Holiday"}},
-        "gv2016": {"template": "test", "content": {"title": "Global Village for President 2016"}},
-        "league": {"template": "test", "content": {"title": "League of Lucas"}}
+        "main": {"template": "test", "title": "Global Village"},
+        "upcoming": {"template": "test", "title": "Upcoming Shows"},
+        "like": {"template": "test", "title": "Like Global Village on Facebook"},
+        "follow": {"template": "test", "title": "Follow Global Village on Twitter"},
+        "venue": {"template": "test", "title": "Dublin Door House"},
+        "event": {"template": "test", "title": "Congratulations Newlyweds"},
+        "trivia": {"template": "test", "title": "Did you know?"},
+        "photos": {"template": "test", "title": "Foto Pheed"},
+        "twitter": {"template": "test", "title": "Recently on Twitter"},
+        "survey": {"template": "test", "title": "Choose one..."},
+        "ad": {"template": "test", "title": "...and now a word from our sponsors."},
+        "celebration": {"template": "test", "title": "Happy Birthday/Holiday"},
+        "gv2016": {"template": "test", "title": "Global Village for President 2016"},
+        "league": {"template": "test", "title": "League of Lucas"}
     },
     "templates": {
-        "test": "<h1>{{ content.title }}</h1>"
+        "test": "<h1>{{ title }}</h1>"
     }
 }
