@@ -103,38 +103,51 @@ limitations under the License.
       // utility function to display the text message in the input field
       function displayText(text) {
         console.log(text);
-        var message = document.getElementById("message");
-        var webpage = document.getElementById("webpage");
+        //var message = document.getElementById("message");
+        //var webpage = document.getElementById("webpage");
+        var $message = $('#message');
+        var $webpage = $('#webpage');
         if (text.substr(0, 4) === "http") {
-          message.style.display = "none";
-          webpage.style.display = "block";
-          webpage.src = text;
+          $message.hide();
+          $webpage.show();
+          $webpage.attr('src', text);
+          //message.style.display = "none";
+          //webpage.style.display = "block";
+          //webpage.src = text;
         } else {
-          message.style.display = "block";
-          webpage.style.display = "none";
-          message.innerHTML = text;
+          $message.show();
+          $webpage.hide();
+          $message.html(text);
+          //message.style.display = "block";
+          //webpage.style.display = "none";
+          //message.innerHTML = text;
         }
         window.castReceiverManager.setApplicationState(text);
       };
     </script>
     <script>
+      // Add connection to firebase data
       var firebase = new Firebase('https://gvtv.firebaseio.com/pages');
-      var slideIndex = 0;
+
+      // Initialize pages and current index
       var pages;
+      var currentIndex = 0;
+
+      // Display the next page based on the currentIndex
+      // Use a timer to loop through the pages
       function displayPage() {
-        displayText(pages[slideIndex].body);
-        slideIndex = (slideIndex + 1) % pages.length;
+        displayText(pages[currentIndex].body);
+        currentIndex = (currentIndex + 1) % pages.length;
         setTimeout(displayPage, 1000);
       }
+
+      // Get all data from firebase, and display first page
       function onvalue(snapshot) {
         pages = snapshot.val();
         setTimeout(displayPage, 1000);
-        //displayText(snapshot.val()[0].body);
-        //var pages = snapshot.val();
-        //for (var i = 0; i < pages.length; i++)
-          //console.log(pages[i].body);
       }
       firebase.on('value', onvalue);
+
       $('#message').html('<h1>Global Village TV</h1>');
     </script>
   </body>
