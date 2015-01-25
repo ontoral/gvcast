@@ -123,7 +123,7 @@ limitations under the License.
       var pages;
       function displayPage() {
         displayText(pages[slideIndex].body);
-        slideIndex++;
+        slideIndex = (slideIndex + 1) % pages.length;
         setTimeout(displayPage, 1000);
       }
       function onvalue(snapshot) {
