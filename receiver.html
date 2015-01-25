@@ -121,7 +121,7 @@ limitations under the License.
       var firebase = new Firebase('https://gvtv.firebaseio.com/pages');
       firebase.on('value', function(pages) {
         console.log(pages.val());
-        $('#message').innerHTML = pages[0].html;
+        $('#message').innerHTML = pages.val()[0].html;
       });
     </script>
   </body>
