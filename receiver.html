@@ -119,12 +119,13 @@ limitations under the License.
     </script>
     <script>
       var firebase = new Firebase('https://gvtv.firebaseio.com/pages');
-      firebase.on('value', function(snapshot) {
+      function onvalue(snapshot) {
         var pages = snapshot.val();
         for (var i = 0; i < pages.length; i++)
           console.log(pages[i].html);
-        $('#message').innerHTML = pages[0].html;
-      });
+      }
+      firebase.on('value', onvalue);
+      $('#message').innerHTML = '<h1>Global Village TV</h1>';
     </script>
   </body>
 </html>
