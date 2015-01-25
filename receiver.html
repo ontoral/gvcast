@@ -18,6 +18,7 @@ limitations under the License.
   <head>
     <script src='https://cdn.firebase.com/js/client/2.0.4/firebase.js'></script>
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <script src="mustache.js"></script>
     <style type="text/css">
 	  body {
 	    overflow:hidden;
@@ -127,24 +128,44 @@ limitations under the License.
     </script>
     <script>
       // Add connection to firebase data
-      var firebase = new Firebase('https://gvtv.firebaseio.com/pages');
+      var firebase = new Firebase('https://gvtv.firebaseio.com');
 
       // Initialize pages and current index
-      var pages;
-      var currentIndex = 0;
+      var slides;
+      var templates;
+      var slideshow;
+      var showIndex = 0;
+
+      function displaySlide() {
+        var slide, template;
+        var timeout = 0;
+        if (showIndex < 0)
+          slide = slides[slideshow[0].slide];
+        else {
+          slide = slides[slideshow[showIndex].slide];
+          timeout = slideshow[showIndex].time;
+          showIndex = (showIndex + 1) % slideshow.length;
+        }
+        template = templates[slide.template];
+        if (timeout)
+          setTimeout(displaySlide, timeout);
+      }
 
       // Display the next page based on the currentIndex
       // Use a timer to loop through the pages
-      function displayPage() {
+      function playSlideshow() {
         displayText(pages[currentIndex].body);
-        currentIndex = (currentIndex + 1) % pages.length;
+        currentIndex = (currentIndex + 1) % slideshow.length;
         setTimeout(displayPage, 1000);
       }
 
       // Get all data from firebase, and display first page
       function onvalue(snapshot) {
-        pages = snapshot.val();
-        setTimeout(displayPage, 1000);
+        fb = snapshot.val();
+        templates = fb.templates;
+        slides = fb.slides;
+        slideshow = fb.slideshows[fb.current].show;
+        playSlideshow();
       }
       firebase.on('value', onvalue);
 

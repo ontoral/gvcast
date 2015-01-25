@@ -1,18 +1,37 @@
 {
-    "pages": [
-        {"title": "main", "body": "<h1>Global Village</h1>"},
-        {"title": "upcoming", "body": "<h1>Upcoming Shows</h1>"},
-        {"title": "like", "body": "<h1>Like Global Village on Facebook</h1>"},
-        {"title": "follow", "body": "<h1>Follow Global Village on Twitter</h1>"},
-        {"title": "venue", "body": "<h1>Dublin Door House</h1>"},
-        {"title": "event", "body": "<h1>Congratulations Newlyweds</h1>"},
-        {"title": "trivia", "body": "<h1>Did you know?</h1>"},
-        {"title": "photos", "body": "<h1>Foto Pheed</h1>"},
-        {"title": "twitter", "body": "<h1>Recently on Twitter</h1>"},
-        {"title": "survey", "body": "<h1>Choose one...</h1>"},
-        {"title": "ad", "body": "<h1>...and now a word from our sponsors.</h1>"},
-        {"title": "celebration", "body": "<h1>Happy Birthday/Holiday</h1>"},
-        {"title": "gv2016", "body": "<h1>Global Village for President 2016</h1>"},
-        {"title": "league", "body": "<h1>League of Lucas</h1>"}
-    ]
+    "current": "20150130",
+    "slideshows": {
+        "20150130": {
+            "show": [
+                {"slide": "main", "time": 5000},
+                {"slide": "upcoming", "time": 1000},
+                {"slide": "like", "time": 1000},
+                {"slide": "main", "time": 5000},
+                {"slide": "venue", "time": 1000},
+                {"slide": "follow", "time": 1000},
+                {"slide": "league", "time": 2000},
+                {"slide": "main", "time": 5000},
+                {"slide": "gv2016", "time": 2000}
+            ]
+        }
+    },
+    "slides": {
+        "main": {"template": "test", "content": {"title": "Global Village"}},
+        "upcoming": {"template": "test", "content": {"title": "Upcoming Shows"}},
+        "like": {"template": "test", "content": {"title": "Like Global Village on Facebook"}},
+        "follow": {"template": "test", "content": {"title": "Follow Global Village on Twitter"}},
+        "venue": {"template": "test", "content": {"title": "Dublin Door House"}},
+        "event": {"template": "test", "content": {"title": "Congratulations Newlyweds"}},
+        "trivia": {"template": "test", "content": {"title": "Did you know?"}},
+        "photos": {"template": "test", "content": {"title": "Foto Pheed"}},
+        "twitter": {"template": "test", "content": {"title": "Recently on Twitter"}},
+        "survey": {"template": "test", "content": {"title": "Choose one..."}},
+        "ad": {"template": "test", "content": {"title": "...and now a word from our sponsors."}},
+        "celebration": {"template": "test", "content": {"title": "Happy Birthday/Holiday"}},
+        "gv2016": {"template": "test", "content": {"title": "Global Village for President 2016"}},
+        "league": {"template": "test", "content": {"title": "League of Lucas"}}
+    },
+    "templates": {
+        "test": "<h1>{{ content.title }}</h1>"
+    }
 }
