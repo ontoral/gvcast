@@ -13,6 +13,10 @@ var current;
 var showIndex = 0;
 
 function setCurrent() {
+    console.log('setCurrent');
+    console.log('slideshows');
+    console.log(slideshows);
+    console.log('current ' + current);
     if (!slideshows)
         return standBy();
     slideshow = slideshows[current];
