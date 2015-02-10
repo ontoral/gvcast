@@ -21,11 +21,12 @@ function setCurrent() {
         return standBy();
     console.log('slideshow');
     console.log(slideshows[current]);
-    slideshow = slideshows[current];
-    if (!slideshow)
+    if (!slideshows[current])
         standBy();
-    else
+    else {
+        slideshow = slideshows[current].show;
         playSlideshow();
+    }
 }
 
 // Get and watch slides
