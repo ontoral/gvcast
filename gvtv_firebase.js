@@ -13,7 +13,7 @@ var current;
 var showIndex = 0;
 
 function setCurrent() {
-    if (slideshows === undefined || current === undefined)
+    if (!slideshows)
         return standBy();
     slideshow = slideshows[current];
     if (!slideshow)
