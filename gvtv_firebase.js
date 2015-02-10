@@ -19,6 +19,8 @@ function setCurrent() {
     console.log('current ' + current);
     if (!slideshows)
         return standBy();
+    console.log('slideshow');
+    console.log(slideshows[current]);
     slideshow = slideshows[current];
     if (!slideshow)
         standBy();
