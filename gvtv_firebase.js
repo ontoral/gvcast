@@ -52,6 +52,8 @@ function displaySlide() {
     if (showIndex < 0)
         slide = slides[slideshow[0].slide];
     else {
+        console.log('showIndex ' + showIndex);
+        console.log(slideshow[showIndex]);
         slide = slides[slideshow[showIndex].slide];
         timeout = slideshow[showIndex].time;
         showIndex = (showIndex + 1) % slideshow.length;
