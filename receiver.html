@@ -126,53 +126,7 @@ limitations under the License.
         window.castReceiverManager.setApplicationState(text);
       };
     </script>
-    <script>
-      // Add connection to firebase data
-      var firebase = new Firebase('https://gvtv.firebaseio.com');
-
-      // Initialize pages and current index
-      var slides;
-      var templates;
-      var slideshow;
-      var showIndex = 0;
-
-      function displaySlide() {
-        var slide, template;
-        var timeout = 0;
-        if (showIndex < 0)
-          slide = slides[slideshow[0].slide];
-        else {
-          slide = slides[slideshow[showIndex].slide];
-          timeout = slideshow[showIndex].time;
-          showIndex = (showIndex + 1) % slideshow.length;
-        }
-        template = templates[slide.template];
-        $('body').html(Mustache.to_html(template, slide));
-        return timeout;
-      }
-
-      // Display the next page based on the currentIndex
-      // Use a timer to loop through the pages
-      function playSlideshow() {
-        //displayText(pages[currentIndex].body);
-        //currentIndex = (currentIndex + 1) % slideshow.length;
-        var timeout = displaySlide();
-        if (timeout)
-          setTimeout(playSlideshow, timeout);
-      }
-
-      // Get all data from firebase, and display first page
-      function onvalue(snapshot) {
-        fb = snapshot.val();
-        templates = fb.templates;
-        slides = fb.slides;
-        slideshow = fb.slideshows[fb.current].show;
-        playSlideshow();
-      }
-      firebase.on('value', onvalue);
-
-      $('#message').html('<h1>Global Village TV</h1>');
-    </script>
+    <script src="gvtv_firebase.js"></script>
   </body>
 </html>
 
