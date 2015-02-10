@@ -15,7 +15,7 @@ var showIndex = 0;
 function setCurrent() {
     if (slideshows === undefined || current === undefined)
         return standBy();
-    slideshow = slideshows[fb.current];
+    slideshow = slideshows[current];
     if (!slideshow)
         standBy();
     else
