@@ -18,6 +18,8 @@ function setCurrent() {
     slideshow = slideshows[fb.current];
     if (!slideshow)
         standBy();
+    else
+        playSlideshow();
 }
 
 // Get and watch slides
@@ -64,13 +66,13 @@ function playSlideshow() {
 }
     
 // Get all data from firebase, and display first page
-function onvalue(snapshot) {
-    fb = snapshot.val();
-    templates = fb.templates;
-    slides = fb.slides;
-    slideshow = fb.slideshows[fb.current];
-    playSlideshow();
-}
+//function onvalue(snapshot) {
+//    fb = snapshot.val();
+//    templates = fb.templates;
+//    slides = fb.slides;
+//    slideshow = fb.slideshows[fb.current];
+//    playSlideshow();
+//}
 //firebase.on('value', onvalue);
 
 function standBy() {
