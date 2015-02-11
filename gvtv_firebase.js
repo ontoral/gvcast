@@ -38,8 +38,6 @@ fb_slideshows.on('value', function(snapshot) {
     setCurrent();
 });
 fb_current.on('value', function(snapshot) {
-    console.log('onValue: ' + snapshot.val());
-    console.log('timeout: ' + timeout);
     currentShow = snapshot.val();
     setCurrent();
 });
