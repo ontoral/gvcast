@@ -9,17 +9,18 @@ var slides;
 var templates;
 var slideshow;
 var slideshows;
-var current;
+var currentShow;
 var showIndex = 0;
+var timeout = 0;
 
 function setCurrent() {
     if (!slideshows)
         return standBy();
-    if (!slideshows[current])
+    if (!slideshows[currentShow])
         standBy();
     else {
-        slideshow = slideshows[current].show;
-        playSlideshow();
+        slideshow = slideshows[currentShow].show;
+        showNextSlide();
     }
 }
 
@@ -37,7 +38,8 @@ fb_slideshows.on('value', function(snapshot) {
     setCurrent();
 });
 fb_current.on('value', function(snapshot) {
-    current = snapshot.val();
+    console.log('onValue: ' + snapshot.val());
+    currentShow = snapshot.val();
     setCurrent();
 });
 
@@ -56,26 +58,18 @@ function displaySlide() {
     return timeout;
 }
 
-// Display the next page based on the currentIndex
 // Use a timer to loop through the pages
-function playSlideshow() {
-    //displayText(pages[currentIndex].body);
-    //currentIndex = (currentIndex + 1) % slideshow.length;
-    var timeout = displaySlide();
-    if (timeout)
-        setTimeout(playSlideshow, timeout);
+function showNextSlide() {
+    var slideDuration = displaySlide();
+    if (slideDuration)
+        timeout = setTimeout(showNextSlide, slideDuration);
+    else
+        timeout = 0;
 }
-    
-// Get all data from firebase, and display first page
-//function onvalue(snapshot) {
-//    fb = snapshot.val();
-//    templates = fb.templates;
-//    slides = fb.slides;
-//    slideshow = fb.slideshows[fb.current];
-//    playSlideshow();
-//}
-//firebase.on('value', onvalue);
 
+// This drops the current show (if any) and displays the standby message
 function standBy() {
+    if (timeout)
+        clearTimeout(timeout);
     $('#message').html('<h1>Global Village TV</h1><h2>Standing by...</h2>');
 }
