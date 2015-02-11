@@ -13,14 +13,8 @@ var current;
 var showIndex = 0;
 
 function setCurrent() {
-    console.log('setCurrent');
-    console.log('slideshows');
-    console.log(slideshows);
-    console.log('current ' + current);
     if (!slideshows)
         return standBy();
-    console.log('slideshow');
-    console.log(slideshows[current]);
     if (!slideshows[current])
         standBy();
     else {
@@ -53,8 +47,6 @@ function displaySlide() {
     if (showIndex < 0)
         slide = slides[slideshow[0].slide];
     else {
-        console.log('showIndex ' + showIndex);
-        console.log(slideshow[showIndex]);
         slide = slides[slideshow[showIndex].slide];
         timeout = slideshow[showIndex].time;
         showIndex = (showIndex + 1) % slideshow.length;
