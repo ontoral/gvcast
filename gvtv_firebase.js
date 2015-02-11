@@ -39,6 +39,7 @@ fb_slideshows.on('value', function(snapshot) {
 });
 fb_current.on('value', function(snapshot) {
     console.log('onValue: ' + snapshot.val());
+    console.log('timeout: ' + timeout);
     currentShow = snapshot.val();
     setCurrent();
 });
@@ -71,5 +72,5 @@ function showNextSlide() {
 function standBy() {
     if (timeout)
         clearTimeout(timeout);
-    $('#message').html('<h1>Global Village TV</h1><h2>Standing by...</h2>');
+    $('body').html('<h1>Global Village TV</h1><h2>Standing by...</h2>');
 }
